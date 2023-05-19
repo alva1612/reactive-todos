@@ -29,7 +29,7 @@ function App() {
   const completeTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
     const newTodos = [...todos];
-    newTodos[todoIndex].completed = true;
+    newTodos[todoIndex].completed = !todos[todoIndex].completed;
     persistTodos(newTodos);
   };
   const deleteTodo = (text) => {
@@ -45,7 +45,11 @@ function App() {
 
   return (
     <>
-      <TodoCounter completed={completedTodos} total={totalTodos} />
+      <TodoCounter
+        completed={completedTodos}
+        total={totalTodos}
+        isLoading={loading}
+      />
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <TodoList>

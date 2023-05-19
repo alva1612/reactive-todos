@@ -19,7 +19,7 @@
 }
 
 .TodoLoading-text {
-  margin: 24px;
+  margin: 24px 24px 24px 48px;
   width: calc(100% - 120px);
   font-size: 18px;
   line-height: 24px;
@@ -33,7 +33,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50px;
+  border-radius: 10px;
   height: 48px;
   width: 48px;
 }
@@ -44,7 +44,7 @@
 .TodoLoading-deleteIcon {
   position: absolute;
   top: -24px;
-  right: 0;
+  right: 12px;
 }
 
 .TodoLoading-container,

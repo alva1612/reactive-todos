@@ -4,10 +4,18 @@ import "./TodoItem.css";
 
 function TodoItem(props) {
   const { todo, onComplete, onDelete } = props;
+
+  const classList = ["TodoItem"];
+  const pClassList = ["TodoItem-p"];
+  if (todo.completed) {
+    classList.push("TodoItem--complete");
+    pClassList.push("TodoItem-p--complete");
+  }
+
   return (
-    <li className="TodoItem">
+    <li className={classList.join(" ")}>
       <CompleteIcon completed={todo.completed} onComplete={onComplete} />
-      <p className="TodoItem-p">{todo.text}</p>
+      <p className={pClassList.join(" ")}>{todo.text}</p>
       <DeleteIcon onDelete={onDelete} />
     </li>
   );

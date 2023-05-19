@@ -1,6 +1,7 @@
 .TodoItem {
-  border: 1px solid var(--border-color);
-  background-color: var(--bg-fg-color);
+  border: solid 1px;
+  border-color: var(--border-color);
+  background-color: var(--bg-dark-color);
   position: relative;
   display: flex;
   justify-content: center;
@@ -12,8 +13,18 @@
   cursor: pointer;
   padding: 10px 0;
 }
+.TodoItem:hover {
+  background-color: var(--bg-fg-hover-color);
+  transition: 0.25s ease-in;
+}
+
+.TodoItem--complete {
+  background-color: var(--bg-fg-color);
+  opacity: 0.8;
+}
+
 .TodoItem-p {
-  margin: 24px;
+  margin: 24px 24px 24px 48px;
   width: calc(100% - 120px);
   font-size: 18px;
   line-height: 24px;
@@ -21,8 +32,5 @@
 }
 .TodoItem-p--complete {
   text-decoration: line-through;
-}
-.TodoItem:hover {
-  background-color: var(--bg-fg-hover-color);
-  transition: 0.25s ease-in;
+  transition: all 0.25s;
 }
