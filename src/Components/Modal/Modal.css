@@ -19,7 +19,14 @@
   border-radius: 20px;
   border: solid 1px;
   border-color: var(--border-color);
+  overflow: hidden;
 }
+
+.Modal-content-small {
+  width: clamp(300px, 50%, 600px);
+  height: clamp(300px, 40%, 700px);
+}
+
 .Modal-content-medium {
   width: clamp(300px, 60%, 900px);
   height: clamp(300px, 50%, 1000px);

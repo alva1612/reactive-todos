@@ -1,4 +1,4 @@
-button {
+.ActionBtn {
   text-decoration: none;
   position: relative;
   border: none;
@@ -22,7 +22,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.ActionBtn:hover {
   animation: ani 8s linear infinite;
   border: none;
 }
@@ -37,7 +37,7 @@ button:hover {
   }
 }
 
-button:before {
+.ActionBtn:before {
   content: "";
   position: absolute;
   top: -5px;
@@ -56,11 +56,11 @@ button:before {
   transition: 1s;
 }
 
-button:hover::before {
+.ActionBtn:hover::before {
   filter: blur(20px);
 }
 
-button:active {
+.ActionBtn:active {
   background: linear-gradient(
     32deg,
     var(--highlight-color),

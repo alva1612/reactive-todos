@@ -22,3 +22,17 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
+
+.CloseBtn {
+  background-color: var(--bg-dark-color);
+  color: var(--text-color);
+  outline: none;
+  border: none;
+  border-top: solid 1px var(--border-color);
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+}
+.CloseBtn:hover {
+  background-color: var(--bg-fg-hover-color);
+  transition: all 0.25s ease-in;
+}

@@ -9,6 +9,7 @@ import { TodoItem } from "./TodoItem";
 import { TodoList } from "./TodoList";
 import { TodoSearch } from "./TodoSearch";
 import { TodoError } from "./Components/TodoError";
+import { NewTodo } from "./Components/Forms/NewTodo/NewTodo";
 
 export function AppUI() {
   const {
@@ -41,7 +42,11 @@ export function AppUI() {
       </TodoList>
 
       <CreateTodoButton />
-      {newTodoModal && <Modal size={"medium"}>Func</Modal>}
+      {newTodoModal && (
+        <Modal size={"small"}>
+          <NewTodo />
+        </Modal>
+      )}
     </>
   );
 }
