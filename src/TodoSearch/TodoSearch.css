@@ -1,0 +1,22 @@
+.TodoSearch-input {
+  width: clamp(200px, 40%, 800px);
+  display: flex;
+  margin: auto;
+  border: solid 1px var(--border-color);
+  line-height: 24px;
+  padding: 10px 24px;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: var(--bg-fg-color);
+  color: var(--text-color);
+  outline: none;
+
+  transition: all 0.25s ease-out;
+}
+
+.TodoSearch-input:focus,
+.TodoSearch-input:active,
+.TodoSearch-input:focus-visible {
+  border-color: var(--text-highlight-color);
+  transition: all 0.25s ease-in;
+}

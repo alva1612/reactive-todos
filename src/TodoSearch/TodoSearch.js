@@ -1,3 +1,5 @@
+import "./TodoSearch.css";
+
 function getValue(event) {
   return event.target.value;
 }
@@ -12,13 +14,7 @@ function TodoSearch(props) {
         setSearchValue(getValue(event));
       }}
       placeholder="Cortar cebolla"
-      style={{
-        width: "clamp(200px, 40%, 800px)",
-        display: "flex",
-        margin: "auto",
-        border: "solid 3px white",
-        fontSize: "1rem",
-      }}
+      className="TodoSearch-input"
     />
   );
 }

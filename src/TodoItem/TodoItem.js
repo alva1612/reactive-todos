@@ -7,7 +7,7 @@ function TodoItem(props) {
   return (
     <li className="TodoItem">
       <CompleteIcon completed={todo.completed} onComplete={onComplete} />
-      <p>{todo.text}</p>
+      <p className="TodoItem-p">{todo.text}</p>
       <DeleteIcon onDelete={onDelete} />
     </li>
   );

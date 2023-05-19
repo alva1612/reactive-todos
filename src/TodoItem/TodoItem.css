@@ -1,14 +1,19 @@
 .TodoItem {
-  border: 2px solid #a1a1a1;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-fg-color);
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 24px;
   box-shadow: 0 5px 50px rgba(32, 35, 41, 0.15);
+  border-radius: 10px;
+  transition: 0.25s ease-out;
+  cursor: pointer;
+  padding: 10px 0;
 }
 .TodoItem-p {
-  margin: 24px 0 24px 24px;
+  margin: 24px;
   width: calc(100% - 120px);
   font-size: 18px;
   line-height: 24px;
@@ -16,4 +21,8 @@
 }
 .TodoItem-p--complete {
   text-decoration: line-through;
+}
+.TodoItem:hover {
+  background-color: var(--bg-fg-hover-color);
+  transition: 0.25s ease-in;
 }
