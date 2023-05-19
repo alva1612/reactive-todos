@@ -2,6 +2,7 @@
   width: clamp(200px, 40%, 800px);
   display: flex;
   margin: auto;
+  margin-top: 30px;
   border: solid 1px var(--border-color);
   line-height: 24px;
   padding: 10px 24px;
