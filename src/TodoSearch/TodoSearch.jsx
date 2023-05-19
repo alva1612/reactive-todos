@@ -1,11 +1,14 @@
+import { useContext } from "react";
+import { TodoContext } from "../Contexts/TodoContext";
+
 import "./TodoSearch.css";
 
 function getValue(event) {
   return event.target.value;
 }
 
-function TodoSearch(props) {
-  const { searchValue, setSearchValue } = props;
+function TodoSearch() {
+  const { searchValue, setSearchValue } = useContext(TodoContext);
 
   return (
     <input
