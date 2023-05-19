@@ -1,14 +1,18 @@
 .Icon-container-loading {
+  --half-container: calc(50% - 3px);
+  --full-motion: calc(100% - 3px);
+  --back-motion: calc(-1 * var(--full-motion));
+
+  top: calc(50% - 24px);
+  left: 12px;
   position: absolute;
+  background-color: transparent;
 }
 
 .LoadingIcon-container {
-  width: 100%;
-  height: 100%;
-  /* transform: rotate(45deg); */
-  --half-container: calc(50% - 2px);
-  --full-motion: calc(100% - 2px);
-  --back-motion: calc(-1 * var(--full-motion));
+  width: 55%;
+  height: 55%;
+  transform: rotate(45deg);
 }
 
 .LoadingIcon-rhombus {
@@ -20,46 +24,43 @@
 
 #rh-1 {
   top: var(--half-container);
-  animation: rh-one 12s infinite;
+  animation: rh-one 8s infinite;
   transition: all 0.25s;
 }
 #rh-2 {
   top: 0;
   left: 0;
-  animation: rh-two 12s infinite;
+  animation: rh-two 8s infinite;
   transition: all 0.25s;
 }
 #rh-3 {
   left: var(--half-container);
-  animation: rh-three 12s infinite;
+  animation: rh-three 8s infinite;
   transition: all 0.25s;
 }
 @keyframes rh-one {
-  0% {
-    transform: translate(0, 0);
-  }
   18% {
     transform: translate(0, 0);
   }
-  19% {
+  20% {
     transform: translateY(var(--back-motion));
   }
-  45% {
+  44% {
     transform: translateY(var(--back-motion));
   }
   46% {
     transform: translate(var(--full-motion), var(--back-motion));
   }
-  72% {
+  70% {
     transform: translate(var(--full-motion), var(--back-motion));
   }
-  73% {
+  72% {
     transform: translateX(var(--full-motion));
   }
-  99% {
+  96% {
     transform: translateX(var(--full-motion));
   }
-  100% {
+  98% {
     transform: translate(0, 0);
   }
 }
@@ -68,25 +69,25 @@
   9% {
     transform: translate(0, 0);
   }
-  10% {
+  11% {
     transform: translateX(var(--full-motion));
   }
-  36% {
+  35% {
     transform: translateX(var(--full-motion));
   }
   37% {
     transform: translate(var(--full-motion), var(--full-motion));
   }
-  64% {
+  61% {
     transform: translate(var(--full-motion), var(--full-motion));
   }
-  65% {
+  63% {
     transform: translateY(var(--full-motion));
   }
-  92% {
+  87% {
     transform: translateY(var(--full-motion));
   }
-  93% {
+  89% {
     transform: translate(0, 0);
   }
 }
@@ -95,25 +96,25 @@
   0% {
     transform: translate(0, 0);
   }
-  1% {
+  2% {
     transform: translateY(var(--full-motion));
   }
-  27% {
+  26% {
     transform: translateY(var(--full-motion));
   }
   28% {
     transform: translate(var(--back-motion), var(--full-motion));
   }
-  54% {
+  52% {
     transform: translate(var(--back-motion), var(--full-motion));
   }
-  55% {
+  54% {
     transform: translateX(var(--back-motion));
   }
-  81% {
+  78% {
     transform: translateX(var(--back-motion));
   }
-  82% {
+  80% {
     transform: translate(0, 0);
   }
 }

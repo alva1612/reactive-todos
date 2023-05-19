@@ -1,15 +1,15 @@
 import { useContext } from "react";
 import { TodoContext } from "../Contexts/TodoContext";
+import { LoadingIcon, SearchIcon } from "../Components/TodoIcon";
 
 import "./TodoSearch.css";
-import { LoadingIcon, SearchIcon } from "../Components/TodoIcon";
 
 function getValue(event) {
   return event.target.value;
 }
 
 function TodoSearch() {
-  const { searchValue, setSearchValue } = useContext(TodoContext);
+  const { searchValue, setSearchValue, isLoading } = useContext(TodoContext);
 
   return (
     <div className="TodoSearch-container">
@@ -22,8 +22,7 @@ function TodoSearch() {
         placeholder="Cortar cebolla"
         className="TodoSearch-input"
       />
-      <SearchIcon />
-      <LoadingIcon />
+      {isLoading ? <LoadingIcon /> : <SearchIcon />}
     </div>
   );
 }
