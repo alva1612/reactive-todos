@@ -15,9 +15,11 @@
   padding-left: calc(24px + 48px);
   border-radius: 5px;
   font-size: 1.5rem;
-  background-color: var(--bg-fg-color);
+  background-color: var(--bg-dark-color);
   color: var(--text-color);
   outline: none;
+
+  cursor: text;
 
   transition: all 0.25s ease-out;
 }
@@ -26,5 +28,6 @@
 .TodoSearch-input:active,
 .TodoSearch-input:focus-visible {
   border-color: var(--highlight-color);
+  background-color: var(--bg-dark-color);
   transition: all 0.25s ease-in;
 }

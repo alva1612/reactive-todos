@@ -1,9 +1,5 @@
-export function CreateTodoButton(props) {
-    const {setTodos} = props 
-    return (<button 
-        onClick={console.log}
-        style={{
-        display: "flex",
-        margin: "auto"
-    }}>+</button>)
+import "./CreateTodoButton.css";
+
+export function CreateTodoButton() {
+  return <button onClick={console.log}>New TO DO</button>;
 }
