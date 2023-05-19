@@ -36,5 +36,5 @@ export function useLocalStorage(itemName, initialValue) {
     setItem(newItem);
   };
 
-  return { item, persistItem, isLoading: loading, error };
+  return { item, persistItem, loading, error };
 }

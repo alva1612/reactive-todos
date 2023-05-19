@@ -8,10 +8,11 @@ function TodoProvider({ children }) {
     item: todos,
     persistItem: persistTodos,
     error,
-    isLoading,
+    loading: isLoading,
   } = useLocalStorage("TODOS_V1", []);
 
   const [searchValue, setSearchValue] = useState("");
+  const [newTodoModal, setNewTodoModal] = useState(false);
 
   const completedTodos = todos.filter((todo) => todo.completed).length;
   const searchedTodos = todos.filter((todo) =>
@@ -43,6 +44,8 @@ function TodoProvider({ children }) {
         totalTodos,
         completedTodos,
         setSearchValue,
+        newTodoModal,
+        setNewTodoModal,
       }}
     >
       {children}
