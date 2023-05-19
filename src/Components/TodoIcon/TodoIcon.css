@@ -45,7 +45,9 @@
   top: calc(50% - 24px);
   background-color: transparent;
 }
-input:focus + .Icon-container-search > .Icon-svg {
+input:focus + .Icon-container-search > .Icon-svg,
+input:focus + .Icon-container-loading .LoadingIcon-rhombus {
   fill: var(--highlight-color);
+  border-color: var(--highlight-color);
   transition: all 0.25s ease-in;
 }
