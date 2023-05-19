@@ -5,6 +5,8 @@
   --bg-fg-hover-color: #313136;
   --border-color: rgba(255, 255, 255, 0.2);
 
+  --common-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
+
   --text-color: lightgray;
   --highlight-color: #646cff;
   --warn-color: red;

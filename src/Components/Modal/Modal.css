@@ -1,0 +1,35 @@
+.Modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  background-color: #1e1e2075;
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease-out;
+  animation: Modal-fadeIn 0.25s ease-in;
+}
+.Modal-content {
+  background-color: var(--bg-dark-color);
+  box-shadow: var(--common-shadow);
+  border-radius: 20px;
+  border: solid 1px;
+  border-color: var(--border-color);
+}
+.Modal-content-medium {
+  width: clamp(300px, 60%, 900px);
+  height: clamp(300px, 50%, 1000px);
+}
+
+@keyframes Modal-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -19,6 +19,10 @@ function TodoProvider({ children }) {
     todo.text.toLocaleLowerCase().includes(searchValue)
   );
 
+  const toggleNewTodoModal = () => {
+    setNewTodoModal(!newTodoModal);
+  };
+
   const completeTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
     const newTodos = [...todos];
@@ -46,6 +50,7 @@ function TodoProvider({ children }) {
         setSearchValue,
         newTodoModal,
         setNewTodoModal,
+        toggleNewTodoModal,
       }}
     >
       {children}

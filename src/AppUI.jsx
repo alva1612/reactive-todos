@@ -19,6 +19,7 @@ export function AppUI() {
     deleteTodo,
     newTodoModal,
   } = useContext(TodoContext);
+
   return (
     <>
       <TodoCounter />
@@ -40,7 +41,7 @@ export function AppUI() {
       </TodoList>
 
       <CreateTodoButton />
-      {newTodoModal && <Modal>Func</Modal>}
+      {newTodoModal && <Modal size={"medium"}>Func</Modal>}
     </>
   );
 }

@@ -1,8 +1,13 @@
 import { createPortal } from "react-dom";
 
-export function Modal({ children }) {
+import "./Modal.css";
+
+export function Modal({ children, size }) {
+  const classList = `Modal-content Modal-content-${size}`;
   return createPortal(
-    <div className="Modal">{children}</div>,
+    <div className="Modal-backdrop">
+      <div className={classList}>{children}</div>
+    </div>,
     document.getElementById("modal")
   );
 }
