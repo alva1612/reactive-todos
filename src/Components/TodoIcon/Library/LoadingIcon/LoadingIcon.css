@@ -1,0 +1,119 @@
+.Icon-container-loading {
+  position: absolute;
+}
+
+.LoadingIcon-container {
+  width: 100%;
+  height: 100%;
+  /* transform: rotate(45deg); */
+  --half-container: calc(50% - 2px);
+  --full-motion: calc(100% - 2px);
+  --back-motion: calc(-1 * var(--full-motion));
+}
+
+.LoadingIcon-rhombus {
+  position: absolute;
+  border: 1px solid;
+  width: calc(50% - 2px);
+  height: calc(50% - 2px);
+}
+
+#rh-1 {
+  top: var(--half-container);
+  animation: rh-one 12s infinite;
+  transition: all 0.25s;
+}
+#rh-2 {
+  top: 0;
+  left: 0;
+  animation: rh-two 12s infinite;
+  transition: all 0.25s;
+}
+#rh-3 {
+  left: var(--half-container);
+  animation: rh-three 12s infinite;
+  transition: all 0.25s;
+}
+@keyframes rh-one {
+  0% {
+    transform: translate(0, 0);
+  }
+  18% {
+    transform: translate(0, 0);
+  }
+  19% {
+    transform: translateY(var(--back-motion));
+  }
+  45% {
+    transform: translateY(var(--back-motion));
+  }
+  46% {
+    transform: translate(var(--full-motion), var(--back-motion));
+  }
+  72% {
+    transform: translate(var(--full-motion), var(--back-motion));
+  }
+  73% {
+    transform: translateX(var(--full-motion));
+  }
+  99% {
+    transform: translateX(var(--full-motion));
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes rh-two {
+  9% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translateX(var(--full-motion));
+  }
+  36% {
+    transform: translateX(var(--full-motion));
+  }
+  37% {
+    transform: translate(var(--full-motion), var(--full-motion));
+  }
+  64% {
+    transform: translate(var(--full-motion), var(--full-motion));
+  }
+  65% {
+    transform: translateY(var(--full-motion));
+  }
+  92% {
+    transform: translateY(var(--full-motion));
+  }
+  93% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes rh-three {
+  0% {
+    transform: translate(0, 0);
+  }
+  1% {
+    transform: translateY(var(--full-motion));
+  }
+  27% {
+    transform: translateY(var(--full-motion));
+  }
+  28% {
+    transform: translate(var(--back-motion), var(--full-motion));
+  }
+  54% {
+    transform: translate(var(--back-motion), var(--full-motion));
+  }
+  55% {
+    transform: translateX(var(--back-motion));
+  }
+  81% {
+    transform: translateX(var(--back-motion));
+  }
+  82% {
+    transform: translate(0, 0);
+  }
+}

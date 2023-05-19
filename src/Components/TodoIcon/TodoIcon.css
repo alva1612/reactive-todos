@@ -38,3 +38,14 @@
   fill: var(--warn-color);
   transition: all 0.25s ease-in;
 }
+
+.Icon-container-search {
+  position: absolute;
+  left: 12px;
+  top: calc(50% - 24px);
+  background-color: transparent;
+}
+input:focus + .Icon-container-search > .Icon-svg {
+  fill: var(--highlight-color);
+  transition: all 0.25s ease-in;
+}

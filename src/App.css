@@ -10,7 +10,13 @@
   --warn-color: red;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
 body {
+  width: 100vw;
   background-color: var(--bg-color);
   color: var(--text-color);
 }

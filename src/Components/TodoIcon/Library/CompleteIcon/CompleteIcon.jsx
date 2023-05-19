@@ -1,5 +1,5 @@
-import { Color } from "../../Constants/colors";
-import { TodoIcon } from "./TodoIcon";
+import { Color } from "../../../../Constants/colors";
+import { TodoIcon } from "../../TodoIcon";
 
 export function CompleteIcon({ completed, onComplete }) {
   return (
