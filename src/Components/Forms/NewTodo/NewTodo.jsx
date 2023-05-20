@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
-import "./NewTodo.css";
 import { TodoContext } from "../../../Contexts/TodoContext";
 import { ModalContext } from "../../../Contexts/ModalContext";
+
+import "./NewTodo.css";
 
 export const NewTodo = () => {
   const { addTodo } = useContext(TodoContext);

@@ -1,8 +1,8 @@
 import { TodoProvider } from "./Contexts/TodoContext";
-
-import "./App.css";
 import { AppUI } from "./AppUI";
 import { ModalProvider } from "./Contexts/ModalContext";
+
+import "./App.css";
 
 function App() {
   return (
