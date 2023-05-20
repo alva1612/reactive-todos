@@ -12,25 +12,11 @@ function TodoProvider({ children }) {
   } = useLocalStorage("TODOS_V1", []);
 
   const [searchValue, setSearchValue] = useState("");
-  // const [newTodoModal, setNewTodoModal] = useState(false);
 
   const completedTodos = todos.filter((todo) => todo.completed).length;
   const searchedTodos = todos.filter((todo) =>
     todo.text.toLocaleLowerCase().includes(searchValue)
   );
-
-  // const toggleNewTodoModal = (event) => {
-  //   if (event && event.preventDefault) event.preventDefault();
-  //   if (!newTodoModal) setNewTodoModal(!newTodoModal);
-  //   else {
-  //     const activeModals = document.querySelectorAll("#modal");
-  //     activeModals.forEach((element) => element.classList.toggle("fadeOut"));
-  //     setTimeout(() => {
-  //       setNewTodoModal(!newTodoModal);
-  //       activeModals.forEach((element) => element.classList.toggle("fadeOut"));
-  //     }, 150);
-  //   }
-  // };
 
   const completeTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
@@ -67,8 +53,6 @@ function TodoProvider({ children }) {
         totalTodos,
         completedTodos,
         setSearchValue,
-        // newTodoModal,
-        // toggleNewTodoModal,
       }}
     >
       {children}
