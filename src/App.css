@@ -23,6 +23,31 @@ body {
   color: var(--text-color);
 }
 
+.fadeOut {
+  animation: fadeOut 0.25s ease-out;
+}
+.fadeIn {
+  animation: fadeIn 0.25s ease-in;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .CloseBtn {
   background-color: var(--bg-dark-color);
   color: var(--text-color);

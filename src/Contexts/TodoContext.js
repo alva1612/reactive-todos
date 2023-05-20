@@ -19,8 +19,17 @@ function TodoProvider({ children }) {
     todo.text.toLocaleLowerCase().includes(searchValue)
   );
 
-  const toggleNewTodoModal = () => {
-    setNewTodoModal(!newTodoModal);
+  const toggleNewTodoModal = (event) => {
+    event.preventDefault();
+    if (!newTodoModal) setNewTodoModal(!newTodoModal);
+    else {
+      const activeModals = document.querySelectorAll("#modal");
+      activeModals.forEach((element) => element.classList.toggle("fadeOut"));
+      setTimeout(() => {
+        setNewTodoModal(!newTodoModal);
+        activeModals.forEach((element) => element.classList.toggle("fadeOut"));
+      }, 200);
+    }
   };
 
   const completeTodo = (text) => {
