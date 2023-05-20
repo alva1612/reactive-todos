@@ -1,9 +1,12 @@
 import { useContext, useState } from "react";
 import "./NewTodo.css";
 import { TodoContext } from "../../../Contexts/TodoContext";
+import { ModalContext } from "../../../Contexts/ModalContext";
 
 export const NewTodo = () => {
-  const { addTodo, toggleNewTodoModal } = useContext(TodoContext);
+  const { addTodo } = useContext(TodoContext);
+  const { toggleNewTodoModal } = useContext(ModalContext);
+
   const [newTodo, setNewTodo] = useState("");
 
   const onSubmit = (event) => {

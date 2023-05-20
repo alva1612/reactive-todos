@@ -10,16 +10,12 @@ import { TodoList } from "./TodoList";
 import { TodoSearch } from "./TodoSearch";
 import { TodoError } from "./Components/TodoError";
 import { NewTodo } from "./Components/Forms/NewTodo/NewTodo";
+import { ModalContext } from "./Contexts/ModalContext";
 
 export function AppUI() {
-  const {
-    completeTodo,
-    error,
-    isLoading,
-    searchedTodos,
-    deleteTodo,
-    newTodoModal,
-  } = useContext(TodoContext);
+  const { completeTodo, error, isLoading, searchedTodos, deleteTodo } =
+    useContext(TodoContext);
+  const { displayModal } = useContext(ModalContext);
 
   return (
     <>
@@ -42,7 +38,7 @@ export function AppUI() {
       </TodoList>
 
       <CreateTodoButton />
-      {newTodoModal && (
+      {displayModal && (
         <Modal size={"small"}>
           <NewTodo />
         </Modal>
