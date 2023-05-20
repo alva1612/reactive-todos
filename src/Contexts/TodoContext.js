@@ -20,7 +20,7 @@ function TodoProvider({ children }) {
   );
 
   const toggleNewTodoModal = (event) => {
-    event.preventDefault();
+    if (event && event.preventDefault) event.preventDefault();
     if (!newTodoModal) setNewTodoModal(!newTodoModal);
     else {
       const activeModals = document.querySelectorAll("#modal");
@@ -28,7 +28,7 @@ function TodoProvider({ children }) {
       setTimeout(() => {
         setNewTodoModal(!newTodoModal);
         activeModals.forEach((element) => element.classList.toggle("fadeOut"));
-      }, 200);
+      }, 150);
     }
   };
 
@@ -45,6 +45,15 @@ function TodoProvider({ children }) {
     persistTodos(newTodos);
   };
 
+  const addTodo = (text) => {
+    const newTodo = {
+      text,
+      completed: false,
+    };
+    const newTodos = [...todos, newTodo];
+    persistTodos(newTodos);
+  };
+
   const totalTodos = todos.length;
   return (
     <TodoContext.Provider
@@ -54,6 +63,7 @@ function TodoProvider({ children }) {
         searchedTodos,
         completeTodo,
         deleteTodo,
+        addTodo,
         totalTodos,
         completedTodos,
         setSearchValue,
