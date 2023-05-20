@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { TodoContext } from "../Contexts/TodoContext";
 
+import "./TodoCounter.css";
+
 function TodoCounter() {
   const { isLoading, completedTodos, totalTodos } = useContext(TodoContext);
 
@@ -9,6 +11,7 @@ function TodoCounter() {
       style={{
         textAlign: "center",
       }}
+      className="TodoCounter-text"
     >
       {isLoading
         ? "Bienvenido"

@@ -1,0 +1,8 @@
+.TodoCounter-text {
+  margin: 0;
+  padding: 1rem;
+  padding-top: 1.5rem;
+  background-color: var(--bg-dark-color);
+  border-bottom: solid 1px var(--border-color);
+  margin-bottom: 1rem;
+}

@@ -19,7 +19,7 @@ function TodoSearch() {
           setSearchValue(getValue(event));
         }}
         onFocus={() => console.log("asd")}
-        placeholder="Cortar cebolla"
+        placeholder="Search"
         className="TodoSearch-input"
       />
       {isLoading ? <LoadingIcon /> : <SearchIcon />}
