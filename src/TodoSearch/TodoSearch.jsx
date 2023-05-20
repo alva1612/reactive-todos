@@ -18,7 +18,6 @@ function TodoSearch() {
         onChange={(event) => {
           setSearchValue(getValue(event));
         }}
-        onFocus={() => console.log("asd")}
         placeholder="Search"
         className="TodoSearch-input"
       />
