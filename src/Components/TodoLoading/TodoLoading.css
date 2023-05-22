@@ -51,7 +51,7 @@
 .TodoLoading-completeIcon,
 .TodoLoading-deleteIcon {
   border: solid 1px var(--border-color);
-  background: linear-gradient(90deg, #56c4fb, #c474fe, #8e6ffd);
+  background: linear-gradient(90deg, var(--bg-color), var(--bg-fg-hover-color), var(--bg-fg-color));
   background-size: 400%;
   animation: loadingAnimation 2s ease-in-out infinite;
   z-index: 1;
