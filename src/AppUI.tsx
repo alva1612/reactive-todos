@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useContext } from "react";
 import { Modal } from "./Components/Modal";
 import { TodoEmpty } from "./Components/TodoEmpty";
@@ -6,8 +5,8 @@ import { TodoLoading } from "./Components/TodoLoading";
 import { TodoContext } from "./Contexts/TodoContext";
 import { CreateTodoButton } from "./CreateTodoButton";
 import { TodoCounter } from "./TodoCounter";
-import { TodoItem } from "./TodoItem";
-import { TodoList } from "./TodoList";
+import { TodoItem } from "./Components/TodoItem";
+import { TodoList } from "./Components/TodoList";
 import { TodoSearch } from "./TodoSearch";
 import { TodoError } from "./Components/TodoError";
 import { NewTodo } from "./Components/Forms/NewTodo/NewTodo";

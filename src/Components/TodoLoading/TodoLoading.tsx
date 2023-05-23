@@ -1,4 +1,3 @@
-import * as React from "react";
 import "./TodoLoading.css";
 
 export const TodoLoading = () => {

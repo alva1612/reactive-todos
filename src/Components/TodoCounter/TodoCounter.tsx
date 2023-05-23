@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useContext } from "react";
-import { TodoContext } from "../Contexts/TodoContext";
+import { TodoContext } from "../../Contexts/TodoContext";
 
 import "./TodoCounter.css";
 

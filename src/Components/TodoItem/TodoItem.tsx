@@ -1,10 +1,9 @@
-import * as React from "react";
-import { CompleteIcon, DeleteIcon } from "../Components/TodoIcon";
+import { CompleteIcon, DeleteIcon } from "../TodoIcon";
 
 import "./TodoItem.css";
-import { ToDo } from "../Types/todo.interface";
-import { getTimeElapsed } from "../Helpers"
-import { diffInMinutesToView } from "../Helpers/transform.helper";
+import { ToDo } from "../../Types/todo.interface";
+import { getTimeElapsed } from "../../Helpers"
+import { diffInMinutesToView } from "../../Helpers/transform.helper";
 
 interface TodoItemProps {
   todo: ToDo;
