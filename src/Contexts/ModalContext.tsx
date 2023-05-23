@@ -7,7 +7,7 @@ interface ModalContextValue {
 }
 
 const defaultVal: ModalContextValue = {
-  toggleNewTodoModal: () => {},
+  toggleNewTodoModal: () => { },
   displayModal: false,
 };
 
@@ -20,13 +20,15 @@ const ModalProvider = (props: React.PropsWithChildren) => {
   const toggleNewTodoModal = (event: React.FormEvent | React.MouseEvent) => {
     if (event && event.preventDefault && !event.isDefaultPrevented)
       event.preventDefault();
-    if (!displayModal) setDisplayModal(!displayModal);
+    const activeModals = document.querySelectorAll("#modal");
+    if (!displayModal) {
+      setDisplayModal(!displayModal);
+      activeModals.forEach((element) => element.classList.remove("fadeOut"));
+    }
     else {
-      const activeModals = document.querySelectorAll("#modal");
-      activeModals.forEach((element) => element.classList.toggle("fadeOut"));
+      activeModals.forEach((element) => element.classList.add("fadeOut"));
       setTimeout(() => {
         setDisplayModal(!displayModal);
-        activeModals.forEach((element) => element.classList.toggle("fadeOut"));
       }, 150);
     }
   };

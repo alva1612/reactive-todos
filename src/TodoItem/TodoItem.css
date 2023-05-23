@@ -13,6 +13,7 @@
   cursor: pointer;
   padding: 10px 0;
 }
+
 .TodoItem:hover {
   background-color: var(--bg-fg-hover-color);
   transition: 0.25s ease-in;
@@ -30,11 +31,14 @@
   line-height: 24px;
   font-weight: 400;
 }
+
 .TodoItem-p--complete {
   text-decoration: line-through;
   transition: all 0.25s;
 }
+
 .TodoItem-createDate {
   position: absolute;
   right: 1rem;
+  color: var(--text-soft-color);
 }
