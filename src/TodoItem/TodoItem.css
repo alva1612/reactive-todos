@@ -34,3 +34,7 @@
   text-decoration: line-through;
   transition: all 0.25s;
 }
+.TodoItem-createDate {
+  position: absolute;
+  right: 1rem;
+}
