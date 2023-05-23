@@ -66,9 +66,10 @@ function TodoProvider(props: PropsWithChildren) {
   };
 
   const addTodo = (text: string) => {
-    const newTodo = {
+    const newTodo: ToDo = {
       text,
       completed: false,
+      createDate: new Date()
     };
     const newTodos = [...todos, newTodo];
     persistTodos(newTodos);

@@ -24,6 +24,7 @@ function TodoItem(props: React.PropsWithChildren<TodoItemProps>) {
     <li className={classList.join(" ")}>
       <CompleteIcon completed={todo.completed} onComplete={onComplete} />
       <p className={pClassList.join(" ")}>{todo.text}</p>
+      <small>{todo.createDate.toLocaleString()}</small>
       <DeleteIcon onDelete={onDelete} />
     </li>
   );
