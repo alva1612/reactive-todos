@@ -3,6 +3,8 @@ import { CompleteIcon, DeleteIcon } from "../Components/TodoIcon";
 
 import "./TodoItem.css";
 import { ToDo } from "../Types/todo.interface";
+import { getTimeElapsed } from "../Helpers"
+import { diffInMinutesToView } from "../Helpers/transform.helper";
 
 interface TodoItemProps {
   todo: ToDo;
@@ -24,7 +26,7 @@ function TodoItem(props: React.PropsWithChildren<TodoItemProps>) {
     <li className={classList.join(" ")}>
       <CompleteIcon completed={todo.completed} onComplete={onComplete} />
       <p className={pClassList.join(" ")}>{todo.text}</p>
-      <small className="TodoItem-createDate">{todo.createDate.toLocaleString()}</small>
+      <small className="TodoItem-createDate">{diffInMinutesToView(getTimeElapsed(todo.createDate))}</small>
       <DeleteIcon onDelete={onDelete} />
     </li>
   );

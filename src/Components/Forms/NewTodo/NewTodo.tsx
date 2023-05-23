@@ -23,14 +23,17 @@ export const NewTodo = () => {
 
   return (
     <form className="NewTodo-form" onSubmit={onSubmit}>
-      <textarea
-        className="NewTodo-taskInput"
-        placeholder="New..."
-        rows={4}
-        onChange={onChange}
-      ></textarea>
+      <div className="NewTodo-input-container">
+        <textarea
+          className="NewTodo-taskInput"
+          placeholder="New..."
+          rows={4}
+          onChange={onChange}
+        ></textarea>
+      </div>
+
       <div className="NewTodo-btnContainer">
-        <button className="CloseBtn" onClick={toggleNewTodoModal}>
+        <button className="CloseBtn" type="button" onClick={toggleNewTodoModal}>
           Cerrar
         </button>
         <button className="ActionBtn" type="submit">
