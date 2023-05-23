@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Color } from "../../../../Constants/colors";
+import { COLOR } from "../../../../Constants/colors";
 import { TodoIcon } from "../../TodoIcon";
 import { CompleteIconProps } from "../../TodoIcon.interface";
 
@@ -10,7 +10,7 @@ export function CompleteIcon(
   return (
     <TodoIcon
       type="check"
-      color={completed ? Color.HIGHLIGHT : "gray"}
+      color={completed ? COLOR.HIGHLIGHT : "gray"}
       onClick={onComplete}
     />
   );

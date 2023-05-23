@@ -5,10 +5,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto;
 }
 
+.NewTodo-input-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .NewTodo-taskInput {
-  padding: 0.5rem 24px;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
   border-radius: 5px;
   background-color: var(--bg-fg-color);
@@ -16,6 +22,7 @@
   border: solid 1px var(--border-color);
   color: var(--text-color);
   resize: vertical;
+  width: calc(100% - 2rem);
 }
 
 .NewTodo-btnContainer {

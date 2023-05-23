@@ -1,3 +1,3 @@
-export const Color = {
+export const COLOR = {
   HIGHLIGHT: "var(--highlight-color)",
 };
