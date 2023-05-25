@@ -3,6 +3,7 @@ import React, {
   PropsWithChildren,
   SetStateAction,
   createContext,
+  useReducer,
   useState,
 } from "react";
 import { useLocalStorage } from "../Hooks/useLocalStorage";
@@ -23,15 +24,15 @@ interface TodoContextValue {
 
 const defaultValue: TodoContextValue = {
   searchValue: "",
-  addTodo: () => {},
+  addTodo: () => { },
   completedTodos: 0,
   error: true,
   isLoading: false,
   totalTodos: 0,
-  setSearchValue: () => {},
+  setSearchValue: () => { },
   searchedTodos: [],
-  completeTodo: () => {},
-  deleteTodo: () => {},
+  completeTodo: () => { },
+  deleteTodo: () => { },
 };
 
 const TodoContext = createContext(defaultValue);
@@ -57,12 +58,20 @@ function TodoProvider(props: PropsWithChildren) {
     const newTodos = [...todos];
     newTodos[todoIndex].completed = !todos[todoIndex].completed;
     persistTodos(newTodos);
+    dispatch({
+      type: 'complete',
+      text
+    })
   };
   const deleteTodo = (text: string) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
     persistTodos(newTodos);
+    dispatch({
+      type: 'delete',
+      text,
+    })
   };
 
   const addTodo = (text: string) => {
@@ -73,6 +82,10 @@ function TodoProvider(props: PropsWithChildren) {
     };
     const newTodos = [...todos, newTodo];
     persistTodos(newTodos);
+    dispatch({
+      type: 'add',
+      text
+    })
   };
 
   const totalTodos = todos.length;

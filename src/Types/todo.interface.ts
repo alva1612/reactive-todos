@@ -3,3 +3,9 @@ export interface ToDo {
   completed: boolean;
   createDate: Date
 }
+
+type action = 'add' | 'delete' | 'complete'
+export interface ToDoAction {
+  type: action
+  text: string
+}
