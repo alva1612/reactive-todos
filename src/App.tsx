@@ -4,13 +4,16 @@ import { AppUI } from "./AppUI";
 import { ModalProvider } from "./Contexts/ModalContext";
 
 import "./App.css";
+import { CommonProvider } from "./Contexts/CommonContext";
 
 export function App() {
   return (
-    <ModalProvider>
-      <TodoProvider>
-        <AppUI />
-      </TodoProvider>
-    </ModalProvider>
+    <CommonProvider>
+      <ModalProvider>
+        <TodoProvider>
+          <AppUI />
+        </TodoProvider>
+      </ModalProvider>
+    </CommonProvider>
   );
 }

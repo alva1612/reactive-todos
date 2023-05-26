@@ -3,9 +3,11 @@ import { useContext } from "react";
 import { TodoContext } from "../../Contexts/TodoContext";
 
 import "./TodoCounter.css";
+import { CommonContext } from "../../Contexts/CommonContext";
 
 function TodoCounter() {
-  const { isLoading, completedTodos, totalTodos } = useContext(TodoContext);
+  const { loading } = useContext(CommonContext);
+  const { completedTodos, totalTodos } = useContext(TodoContext);
 
   return (
     <h1
@@ -14,7 +16,7 @@ function TodoCounter() {
       }}
       className="TodoCounter-text"
     >
-      {isLoading
+      {loading
         ? "Bienvenido"
         : `Has completado ${completedTodos} de ${totalTodos} TODOS`}
     </h1>

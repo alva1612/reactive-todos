@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Modal } from "./Components/Modal";
 import { TodoEmpty } from "./Components/TodoEmpty";
 import { TodoLoading } from "./Components/TodoLoading";
-import { TodoContext } from "./Contexts/TodoContext";
+import { TodoContext, TodoDispatchContext } from "./Contexts/TodoContext";
 import { CreateTodoButton } from "./Components/CreateTodoButton";
 import { TodoCounter } from "./Components/TodoCounter";
 import { TodoItem } from "./Components/TodoItem";
@@ -11,11 +11,15 @@ import { TodoSearch } from "./Components/TodoSearch";
 import { TodoError } from "./Components/TodoError";
 import { NewTodo } from "./Components/Forms/NewTodo/NewTodo";
 import { ModalContext } from "./Contexts/ModalContext";
+import { CommonContext } from "./Contexts/CommonContext";
+import { ToDo } from "./Types/todo.interface";
 
 export function AppUI() {
-  const { completeTodo, error, isLoading, searchedTodos, deleteTodo } =
-    useContext(TodoContext);
+  const { loading, error } = useContext(CommonContext);
   const { displayModal } = useContext(ModalContext);
+  const { searchedTodos } = useContext(TodoContext);
+  const { dispatch } = useContext(TodoDispatchContext);
+  console.log("EN APP UI", searchedTodos);
 
   return (
     <>
@@ -23,16 +27,16 @@ export function AppUI() {
       <TodoSearch />
 
       <TodoList>
-        {isLoading && <TodoLoading />}
+        {loading && <TodoLoading />}
         {error && <TodoError />}
 
-        {!isLoading && searchedTodos.length <= 0 && <TodoEmpty />}
+        {!loading && searchedTodos.length <= 0 && <TodoEmpty />}
         {searchedTodos.map((todo, index) => (
           <TodoItem
             key={index}
             todo={todo}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
+            onComplete={() => dispatch({ text: todo.text, type: "complete" })}
+            onDelete={() => dispatch({ text: todo.text, type: "delete" })}
           />
         ))}
       </TodoList>

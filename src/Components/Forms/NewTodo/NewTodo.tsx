@@ -1,12 +1,12 @@
 import * as React from "react";
 import { useContext, useState } from "react";
-import { TodoContext } from "../../../Contexts/TodoContext";
+import { TodoDispatchContext } from "../../../Contexts/TodoContext";
 import { ModalContext } from "../../../Contexts/ModalContext";
 
 import "./NewTodo.css";
 
 export const NewTodo = () => {
-  const { addTodo } = useContext(TodoContext);
+  const { dispatch } = useContext(TodoDispatchContext);
   const { toggleNewTodoModal } = useContext(ModalContext);
 
   const [newTodo, setNewTodo] = useState("");
@@ -14,7 +14,10 @@ export const NewTodo = () => {
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     toggleNewTodoModal(event);
-    addTodo(newTodo);
+    dispatch({
+      type: "add",
+      text: newTodo,
+    });
   };
 
   const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {

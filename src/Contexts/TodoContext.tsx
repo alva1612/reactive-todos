@@ -6,45 +6,43 @@ import React, {
   useReducer,
   useState,
 } from "react";
+import { ToDo, ToDoAction } from "../Types/todo.interface";
 import { useLocalStorage } from "../Hooks/useLocalStorage";
-import { ToDo } from "../Types/todo.interface";
 
 interface TodoContextValue {
-  isLoading: boolean;
-  error: boolean;
   searchedTodos: ToDo[];
-  completeTodo: (text: string) => void;
-  deleteTodo: (text: string) => void;
-  addTodo: (text: string) => void;
   totalTodos: number;
   completedTodos: number;
   setSearchValue: Dispatch<SetStateAction<string>>;
   searchValue: string;
 }
 
+interface TodoDispatchValue {
+  dispatch: React.Dispatch<ToDoAction>;
+}
+const defaultDispatchValue: TodoDispatchValue = {
+  dispatch: () => {
+    throw new Error();
+  },
+};
+
 const defaultValue: TodoContextValue = {
   searchValue: "",
-  addTodo: () => { },
   completedTodos: 0,
-  error: true,
-  isLoading: false,
   totalTodos: 0,
-  setSearchValue: () => { },
+  setSearchValue: () => {},
   searchedTodos: [],
-  completeTodo: () => { },
-  deleteTodo: () => { },
 };
 
 const TodoContext = createContext(defaultValue);
+const TodoDispatchContext = createContext(defaultDispatchValue);
 
 function TodoProvider(props: PropsWithChildren) {
   const { children } = props;
-  const {
-    item: todos,
-    persistItem: persistTodos,
-    error,
-    loading: isLoading,
-  } = useLocalStorage<ToDo>("TODOS_V1", []);
+  const [items, setItems] = useLocalStorage("TODOS_V1", [] as ToDo[]);
+  console.log("teim", items);
+  const [todos, dispatch] = useReducer(todoReducer, [...items]);
+  console.log(todos, "todos reducer");
 
   const [searchValue, setSearchValue] = useState("");
 
@@ -53,60 +51,52 @@ function TodoProvider(props: PropsWithChildren) {
     todo.text.toLocaleLowerCase().includes(searchValue)
   );
 
-  const completeTodo = (text: string) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
-    const newTodos = [...todos];
-    newTodos[todoIndex].completed = !todos[todoIndex].completed;
-    persistTodos(newTodos);
-    dispatch({
-      type: 'complete',
-      text
-    })
-  };
-  const deleteTodo = (text: string) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
-    const newTodos = [...todos];
-    newTodos.splice(todoIndex, 1);
-    persistTodos(newTodos);
-    dispatch({
-      type: 'delete',
-      text,
-    })
-  };
-
-  const addTodo = (text: string) => {
-    const newTodo: ToDo = {
-      text,
-      completed: false,
-      createDate: new Date()
-    };
-    const newTodos = [...todos, newTodo];
-    persistTodos(newTodos);
-    dispatch({
-      type: 'add',
-      text
-    })
-  };
-
   const totalTodos = todos.length;
+  console.log("searhcer", searchedTodos);
   return (
     <TodoContext.Provider
       value={{
-        isLoading,
-        error,
         searchedTodos,
-        completeTodo,
-        deleteTodo,
-        addTodo,
         totalTodos,
         completedTodos,
         setSearchValue,
         searchValue,
       }}
     >
-      {children}
+      <TodoDispatchContext.Provider value={{ dispatch }}>
+        {children}
+      </TodoDispatchContext.Provider>
     </TodoContext.Provider>
   );
 }
 
-export { TodoContext, TodoProvider };
+function todoReducer(todos: ToDo[], action: ToDoAction) {
+  switch (action.type) {
+    case "delete": {
+      const { text } = action;
+      const todoIndex = todos.findIndex((todo) => todo.text === text);
+      const newTodos = [...todos];
+      newTodos.splice(todoIndex, 1);
+      return newTodos;
+    }
+    case "complete": {
+      const { text } = action;
+      const todoIndex = todos.findIndex((todo) => todo.text === text);
+      const newTodos = [...todos];
+      newTodos[todoIndex].completed = !todos[todoIndex].completed;
+      return newTodos;
+    }
+    case "add": {
+      const { text } = action;
+      const newTodo: ToDo = {
+        text,
+        completed: false,
+        createDate: new Date(),
+      };
+      const newTodos = [...todos, newTodo];
+      return newTodos;
+    }
+  }
+}
+
+export { TodoContext, TodoProvider, TodoDispatchContext };

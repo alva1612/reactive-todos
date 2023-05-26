@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { CommonContext } from "../Contexts/CommonContext";
 
 const defaultTodos = [
   { text: "cortar", completed: true },
   { text: "terminar", completed: false },
+  { text: "reterminar", completed: false },
 ];
 
 export function useLocalStorage<T>(itemName: string, initialValue: T[]) {
   const [item, setItem] = useState<T[]>(initialValue);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const { setLoading, setError } = useContext(CommonContext);
 
   useEffect(() => {
+    console.log("esto");
     setTimeout(() => {
       try {
         const storageItems = localStorage.getItem(itemName);
@@ -31,10 +33,12 @@ export function useLocalStorage<T>(itemName: string, initialValue: T[]) {
       }
     }, 1000);
   }, [itemName]);
+
   const persistItem = (newItem: T[]) => {
     localStorage.setItem(itemName, JSON.stringify(newItem));
     setItem(newItem);
   };
 
-  return { item, persistItem, loading, error };
+  console.log("item reutn ", item);
+  return [item, persistItem] as const;
 }

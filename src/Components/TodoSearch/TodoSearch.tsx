@@ -3,13 +3,15 @@ import { TodoContext } from "../../Contexts/TodoContext";
 import { LoadingIcon, SearchIcon } from "../../Components/TodoIcon";
 
 import "./TodoSearch.css";
+import { CommonContext } from "../../Contexts/CommonContext";
 
 function getValue(event: React.ChangeEvent<HTMLInputElement>) {
   return event.target.value;
 }
 
 function TodoSearch() {
-  const { searchValue, setSearchValue, isLoading } = useContext(TodoContext);
+  const { loading } = useContext(CommonContext);
+  const { searchValue, setSearchValue } = useContext(TodoContext);
 
   return (
     <div className="TodoSearch-container">
@@ -21,7 +23,7 @@ function TodoSearch() {
         placeholder="Search"
         className="TodoSearch-input"
       />
-      {isLoading ? <LoadingIcon /> : <SearchIcon />}
+      {loading ? <LoadingIcon /> : <SearchIcon />}
     </div>
   );
 }
